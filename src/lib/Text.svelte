@@ -110,6 +110,8 @@
 
     .text {
         font-family: "STIX Two Math", "Cambria Math", serif;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .char {
@@ -121,6 +123,11 @@
         animation: enter 1s ease forwards;
         transform: all 0.15s ease;
         margin-top: 0.5rem;
+    }
+
+    .space {
+        height: 100%;
+        width: 0.3rem;
     }
 
     @keyframes enter {

@@ -32,6 +32,19 @@
                 text="This text is italicized."
                 italic={true}
             />
+            <div class="paragraphContainer">
+                <Text 
+                    text={`This is a paragraph of text.
+                        It is intentionally long in order to
+                        test whether or not line wrapping
+                        is functioning properly. There are many
+                        words in this paragraph. None of them mean
+                        much of anything. They exist for their utility alone.
+                        There are no secret messages hidden within this text.
+                        Do not for look any. You will be dissapointed.
+                    `}
+                />
+            </div>
         </div>
         <div class="container">
             <Text 
@@ -111,5 +124,9 @@
     .iconContainer {
         display: flex;
         justify-content: space-evenly;
+    }
+
+    .paragraphContainer {
+        width: 50rem;
     }
 </style>

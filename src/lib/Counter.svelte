@@ -2,7 +2,6 @@
     import Text from './Text.svelte';
     import Button from './Button.svelte';
 
-
     export let onChange: (value: number) => void = (_) => {};
 
     export let min: number = 0;
@@ -24,7 +23,10 @@
 
 <div id="main">
     <div id="textContainer">
-        <Text text={`N : ${value}`} width="5rem" align="center" />
+        <Text 
+             text={`N : ${value}`} 
+             width="4.5rem" 
+         />
     </div>
     <Button 
         disabled={value == max}
