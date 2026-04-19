@@ -1,0 +1,115 @@
+<script>
+    import { Button, Text, Dropdown, Slider, Counter } from '../lib/index.ts';
+</script>
+
+<main>
+    <Text 
+        text="The Gallery"
+        type="h1"
+    />
+    <div class="mainContainer">
+        <div class="container">
+            <Text 
+                text="TEXT"
+                type="h2"
+            />
+            <Text 
+                text="This text is normal."
+            />
+            <Text 
+                text="This text is a different color."
+                color="#4287f5"
+            />
+            <Text 
+                text="This text is a different size."
+                fontSize={32}
+            />
+            <Text 
+                text="This text is bold."
+                bold={true}
+            />
+            <Text 
+                text="This text is italicized."
+                italic={true}
+            />
+        </div>
+        <div class="container">
+            <Text 
+                text="BUTTONS"
+                type="h2"
+            />
+            <Button 
+                text="This button has text." 
+                margin={2}
+            />
+            <Button 
+                text="This button is a different color." 
+                primaryColor="#4287f5"
+                border={false}
+                margin={2}
+            />
+            <div class="iconContainer">
+                <Button 
+                    type="plus"
+                />
+                <Button 
+                    type="minus"
+                />
+            </div>
+        </div>
+        <div class="container">
+            <Text 
+                text="DROPDOWN"
+                type="h2"
+            />
+            <Dropdown 
+                width={24}
+            />
+            <Dropdown 
+                width={24}
+                items={[ 'Why not blue?', 'I am blue.', 'da-ba-dee', 'da-ba-di' ]}
+                primaryColor="#4287f5"
+                border={false}
+            />
+        </div>
+        <div class="container">
+            <Text 
+                text="SLIDER"
+                type="h2"
+            />
+            <Slider />
+            <Slider primaryColor="#4287f5" />
+        </div>
+        <div class="container">
+            <Text 
+                text="COUNTER"
+                type="h2"
+            />
+            <Counter />
+        </div>
+    </div>
+</main>
+
+<style>
+    main {
+        margin: 2rem;
+    }
+
+    .mainContainer {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        margin: 1rem;
+        border: 1px solid #ededed;
+    }
+
+    .iconContainer {
+        display: flex;
+        justify-content: space-evenly;
+    }
+</style>
