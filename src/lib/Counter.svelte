@@ -29,7 +29,7 @@
     <Button 
         disabled={value == max}
         onClick={() => shiftValue(1)}
-        text="+"
+        type="plus"
         rightBorder={false}
         topBorder={false}
         bottomBorder={false}
@@ -37,7 +37,7 @@
     <Button 
         disabled={value == min}
         onClick={() => shiftValue(-1)}
-        text="-"
+        type="minus"
         rightBorder={false}
         topBorder={false}
         bottomBorder={false}

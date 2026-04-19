@@ -25,9 +25,11 @@
     switch(type) {
         case 'plus':
             text = '+';
+            width = '6rem';
             break;
         case 'minus':
             text = '-';
+            width = '6rem';
             break;
     }
 
@@ -91,14 +93,15 @@
         display: flex;
         align-items: center;
         text-align: center;
-        min-width: var(--ui-height, 6rem);
-        min-height: var(--ui-height, 6rem);
+        min-width: 6rem;
+        min-height: 6rem;
         padding: 1.5rem;
         border-radius: 0;
         background-color: var(--primary, #101010);
         color: var(--secondary, #ededed);
         font-size: 24pt;
         transition: all 0.15s ease;
+        cursor: pointer; 
     }
 
     button:hover {
