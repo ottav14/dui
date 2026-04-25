@@ -7,6 +7,7 @@
     export let primaryColor = '#ededed';
     export let secondaryColor = '#515151';
     export let intervalCount = 5;
+    export let onChange: (val: number) => void = (_) => {};
 
 	let track: HTMLDivElement;
     let currentInterval = 0;
@@ -23,6 +24,7 @@
             value = Math.round(
                 min + percent * (max - min)
             );
+            onChange(value);
         }
 	}
 

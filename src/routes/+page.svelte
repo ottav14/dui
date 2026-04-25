@@ -1,5 +1,5 @@
 <script>
-    import { Button, Text, Dropdown, Slider, Counter } from '../lib/index.ts';
+    import { Button, Text, Dropdown, Slider, Counter, EquationInput } from '../lib/index.ts';
 </script>
 
 <main>
@@ -61,6 +61,11 @@
                 border={false}
                 margin={2}
             />
+            <Button
+                text="This button toggles."
+                margin={2}
+                toggleButton={true}
+            />
             <div class="iconContainer">
                 <Button 
                     type="plus"
@@ -100,6 +105,13 @@
             />
             <Counter />
         </div>
+        <div class="container">
+            <Text 
+                text="EQUATION INPUT"
+                type="h2"
+            />
+            <EquationInput />
+        </div>
     </div>
 </main>
 
@@ -118,6 +130,7 @@
         flex-direction: column;
         padding: 1rem;
         margin: 1rem;
+        min-width: 40rem;
         border: 1px solid #ededed;
     }
 

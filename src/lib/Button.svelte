@@ -19,8 +19,10 @@
     export let justify: string = 'center';
     export let onClick: () => void = () => {};
     export let type: string = 'default';
+    export let toggleButton: boolean = false;
 
     let textColor = secondaryColor;
+    let toggle = false;
 
     switch(type) {
         case 'plus':
@@ -45,8 +47,15 @@
 
     $: {
         if(disabled) textColor = tertiaryColor;
-        else if(hovered) textColor = primaryColor;
+        else if(hovered || toggleButton && toggle) textColor = primaryColor;
         else textColor = secondaryColor;
+    }
+
+    const handleClick = () => {
+        if(toggleButton)
+            toggle = !toggle;
+
+        onClick();
     }
 
     onMount(() => {
@@ -57,8 +66,9 @@
 
 <button 
     disabled={disabled} 
-    on:click={onClick}
+    on:click={handleClick}
     bind:this={ref}
+    class={toggleButton && toggle ? 'toggled' : 'notToggled'}
     style={`
         --primary: ${primaryColor};
         --secondary: ${secondaryColor};
@@ -104,7 +114,7 @@
         cursor: pointer; 
     }
 
-    button:hover {
+    button:hover, .toggled {
         background-color: var(--secondary, #ededed);
         color: var(--primary, #101010);
         transform: scale(1.1);

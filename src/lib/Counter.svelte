@@ -5,7 +5,7 @@
     export let onChange: (value: number) => void = (_) => {};
 
     export let min: number = 0;
-    export let max: number = 5;
+    export let max: number = 10;
     export let value: number = 0;
 
     export const shiftValue = (delta: number) => {
@@ -25,7 +25,7 @@
     <div id="textContainer">
         <Text 
              text={`N : ${value}`} 
-             width="4.5rem" 
+             align="center"
          />
     </div>
     <Button 
@@ -55,6 +55,7 @@
         border: 1px solid #ededed;
         margin: 2rem;
         height: 6rem;
+        width: fit-content;
     }
 
     #textContainer {

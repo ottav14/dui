@@ -2,7 +2,7 @@
     export let text: string = 'Placeholder text.';
     export let width: string = 'auto';
     export let height: string = 'auto';
-    export let align: string = 'left';
+    export let align: string = 'flex-start';
     export let color: string = '#ededed';
     export let fontSize: number = 24;
     export let padding: number = 0;
@@ -72,7 +72,7 @@
         style={`
             width: ${width}; 
             height: ${height}; 
-            text-align: ${align}; 
+            justify-content: ${align}; 
             font-size: ${fontSize}pt;
             font-style: ${italic ? 'italic' : 'normal'};
             font-weight: ${bold ? 'bold' : 'normal'};
