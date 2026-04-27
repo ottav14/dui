@@ -73,6 +73,9 @@
                 <Button 
                     type="minus"
                 />
+                <Button 
+                    type="settings"
+                />
             </div>
         </div>
         <div class="container">
