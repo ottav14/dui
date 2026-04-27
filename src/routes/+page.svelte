@@ -100,6 +100,11 @@
             />
             <Slider />
             <Slider primaryColor="#4287f5" />
+            <Slider 
+                value={500}
+                min={-50}
+                max={1000}
+            />
         </div>
         <div class="container">
             <Text 

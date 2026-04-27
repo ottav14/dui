@@ -20,9 +20,9 @@
     export let onClick: () => void = () => {};
     export let type: string = 'default';
     export let toggleButton: boolean = false;
+    export let toggle = false;
 
     let textColor = secondaryColor;
-    let toggle = false;
 
     switch(type) {
         case 'plus':

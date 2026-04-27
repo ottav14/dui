@@ -11,36 +11,41 @@
 
 	let track: HTMLDivElement;
     let currentInterval = 0;
+    let percent: number;
 
-	function updateValue(clientX: number) {
+    $: {
+        percent = (value + min) / (max + min);
+    }
+
+    const updateValue = (clientX: number) => {
         const rect = track.getBoundingClientRect();
-        let percent = (clientX - rect.left) / rect.width;
-        const interval = Math.floor(Math.floor(100*percent) / intervalCount);
+        let currentPercent = (clientX - rect.left) / rect.width;
+        const interval = Math.floor(Math.floor(100*currentPercent) / intervalCount);
         if(interval != currentInterval) {
             currentInterval = interval;
 
-            percent = Math.max(0, Math.min(1, percent));
+            currentPercent = Math.max(0, Math.min(1, currentPercent));
 
             value = Math.round(
-                min + percent * (max - min)
+                min + currentPercent * (max - min)
             );
             onChange(value);
         }
 	}
 
-	function handlePointerDown(e: PointerEvent) {
+    const handlePointerDown = (e: PointerEvent) => {
 		updateValue(e.clientX);
 
-		const move = (e: PointerEvent) => {
-			updateValue(e.clientX);
-		};
+        const move = (e: PointerEvent) => {
+            updateValue(e.clientX);
+        }
 
 		const up = () => {
-			window.removeEventListener('pointermove', move);
+            window.removeEventListener('pointermove', move);
 			window.removeEventListener('pointerup', up);
 		};
 
-		window.addEventListener('pointermove', move);
+        window.addEventListener('pointermove', move);
 		window.addEventListener('pointerup', up);
 	}
 </script>
@@ -64,12 +69,12 @@
         >
             <div
                 class="fill"
-                style="width: {value}%"
+                style="width: {100*percent}%"
             ></div>
 
             <div
                 class="thumb"
-                style="left: {value}%"
+                style="left: {100*percent}%"
             ></div>
         </div>
     </div>
@@ -118,9 +123,9 @@
         background: var(--primary);
 		cursor: grab;
         transition: 
-            width 0.1s ease,
-            height 0.1s ease,
-            left 0.2s ease;
+        width 0.1s ease,
+        height 0.1s ease,
+        left 0.2s ease;
 	}
 
     .sliderContainer:hover .thumb {
