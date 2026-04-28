@@ -14,7 +14,7 @@
     let percent: number;
 
     $: {
-        percent = (value + min) / (max + min);
+        percent = (value - min) / (max - min);
     }
 
     const updateValue = (clientX: number) => {
