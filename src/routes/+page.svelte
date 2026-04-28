@@ -105,6 +105,13 @@
                 min={-50}
                 max={1000}
             />
+            <Slider 
+                value={0.01}
+                min={0.001}
+                max={0.1}
+                increment={0.001}
+                decimalDigits={3}
+            />
         </div>
         <div class="container">
             <Text 

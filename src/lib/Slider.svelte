@@ -6,7 +6,8 @@
 	export let value = 50;
     export let primaryColor = '#ededed';
     export let secondaryColor = '#515151';
-    export let intervalCount = 5;
+    export let increment = 5;
+    export let decimalDigits = 0;
     export let onChange: (val: number) => void = (_) => {};
 
 	let track: HTMLDivElement;
@@ -20,15 +21,14 @@
     const updateValue = (clientX: number) => {
         const rect = track.getBoundingClientRect();
         let currentPercent = (clientX - rect.left) / rect.width;
-        const interval = Math.floor(Math.floor(100*currentPercent) / intervalCount);
+        const interval = Math.floor(100/increment*currentPercent);
         if(interval != currentInterval) {
             currentInterval = interval;
 
             currentPercent = Math.max(0, Math.min(1, currentPercent));
 
-            value = Math.round(
-                min + currentPercent * (max - min)
-            );
+            value = min + currentPercent * (max - min);
+            if(increment - Math.floor(increment) == 0) value = Math.round(value);
             onChange(value);
         }
 	}
@@ -79,7 +79,7 @@
         </div>
     </div>
     <div class="textContainer">
-        <Text color={primaryColor} text={value.toString()} />
+        <Text color={primaryColor} text={value.toFixed(decimalDigits)} />
     </div>
 </div>
 
