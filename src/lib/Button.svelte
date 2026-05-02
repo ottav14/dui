@@ -24,6 +24,7 @@
     export let toggle = false;
 
     let textColor = secondaryColor;
+    let background = 'transparent';
 
     switch(type) {
         case 'plus':
@@ -65,6 +66,12 @@
         if(disabled) textColor = tertiaryColor;
         else if(hovered || toggleButton && toggle) textColor = primaryColor;
         else textColor = secondaryColor;
+
+        let active = hovered || toggle;
+        if(primaryColor === 'transparent')
+            background = active ? secondaryColor : primaryColor;
+        else 
+            background = active ? `rgb(${secondaryColor})` : `rgb(${primaryColor})`;
     }
 
     const handleClick = () => {
@@ -91,18 +98,19 @@
     style={`
         --primary: ${primaryColor};
         --secondary: ${secondaryColor};
-        border-left: ${leftBorder ? `1px solid ${secondaryColor}` : 'none'};
-        border-right: ${rightBorder ? `1px solid ${secondaryColor}` : 'none'};
-        border-top: ${topBorder ? `1px solid ${secondaryColor}` : 'none'};
-        border-bottom: ${bottomBorder ? `1px solid ${secondaryColor}` : 'none'};
+        border-left: ${leftBorder ? `1px solid rgb(${secondaryColor})` : 'none'};
+        border-right: ${rightBorder ? `1px solid rgb(${secondaryColor})` : 'none'};
+        border-top: ${topBorder ? `1px solid rgb(${secondaryColor})` : 'none'};
+        border-bottom: ${bottomBorder ? `1px solid rgb(${secondaryColor})` : 'none'};
         margin: ${margin}rem;
         width: ${width};
         max-width: ${width};
         justify-content: ${justify};
+        background: ${background};
     `}
 >
     {#if text.length > 0}
-        <Text text={text} color={textColor} />
+        <Text text={text} color={rgbToHex(textColor)} />
     {/if}
     {#if icon.length > 0}
         <svg 
@@ -127,7 +135,6 @@
         min-height: 6rem;
         padding: 1.5rem;
         border-radius: 0;
-        background-color: rgb(var(--primary));
         color: rgb(var(--secondary));
         font-size: 24pt;
         transition: all 0.15s ease;
@@ -135,7 +142,7 @@
     }
 
     .toggled {
-        background-color: rgb(var(--secondary));
+        background: rgb(var(--secondary));
         color: rgb(var(--primary));
         z-index: 2;
     }

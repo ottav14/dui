@@ -70,9 +70,9 @@
                 text="This button has bloom."
                 margin={2}
                 bloom={true}
-                primaryColor="255, 105, 105"
+                primaryColor="transparent"
+                secondaryColor="255, 105, 105"
                 toggleButton={true}
-                border={false}
             />
             <div class="iconContainer">
                 <Button 
