@@ -64,7 +64,7 @@
 
     $: {
         if(disabled) textColor = tertiaryColor;
-        else if(hovered || toggleButton && toggle) textColor = primaryColor;
+        else if(hovered || toggle) textColor = primaryColor;
         else textColor = secondaryColor;
 
         let active = hovered || toggle;
@@ -92,7 +92,7 @@
     on:click={handleClick}
     bind:this={ref}
     class={`
-        ${toggleButton && toggle ? 'toggled' : 'nothing'}
+        ${toggle ? 'toggled' : 'nothing'}
         ${bloom ? 'bloom' : 'nothing'}
     `}
     style={`
@@ -118,7 +118,7 @@
             width={`${iconSize}px`} 
             height={`${iconSize}px`} 
             viewBox="0 -960 960 960" 
-            fill={toggleButton && toggle ? rgbToHex(primaryColor) : rgbToHex(secondaryColor)}
+            fill={toggle ? rgbToHex(primaryColor) : rgbToHex(secondaryColor)}
         >
             <path d={icon}/>
         </svg>

@@ -1,5 +1,8 @@
 <script>
     import { Button, Text, Dropdown, Slider, Counter, EquationInput } from '../lib/index.ts';
+
+    const multiButtonItems = [ '1', '2', '3' ];
+    let activeMultiButtonIx = 0;
 </script>
 
 <main>
@@ -85,6 +88,15 @@
                     type="settings"
                 />
             </div>
+            <div class="multiButtonContainer">
+                {#each multiButtonItems as item, i}
+                    <Button 
+                        text={item}
+                        toggle={i == activeMultiButtonIx}
+                        onClick={() => activeMultiButtonIx = i}
+                    />
+                {/each}
+            </div>
         </div>
         <div class="container">
             <Text 
@@ -155,6 +167,13 @@
         margin: 1rem;
         min-width: 40rem;
         border: 1px solid #ededed;
+    }
+
+    .multiButtonContainer {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
     }
 
     .iconContainer {
