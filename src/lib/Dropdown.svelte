@@ -7,8 +7,8 @@
     let open = false;
 
     export let onSelect: (val: string) => void = (_) => {};
-    export let primaryColor: string = '#101010';
-    export let secondaryColor: string = '#ededed';
+    export let primaryColor: string = '16, 16, 16';
+    export let secondaryColor: string = '237, 237, 237';
     export let border: boolean = true;
 
     const select = (index: number) => {

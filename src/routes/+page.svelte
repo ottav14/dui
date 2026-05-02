@@ -57,7 +57,7 @@
             />
             <Button 
                 text="This button is a different color." 
-                primaryColor="#4287f5"
+                primaryColor="66, 135, 245"
                 border={false}
                 margin={2}
             />
@@ -70,7 +70,7 @@
                 text="This button has bloom."
                 margin={2}
                 bloom={true}
-                primaryColor="#4287f5"
+                primaryColor="255, 105, 105"
                 toggleButton={true}
                 border={false}
             />
@@ -97,7 +97,7 @@
             <Dropdown 
                 width={24}
                 items={[ 'Why not blue?', 'I am blue.', 'da-ba-dee', 'da-ba-di' ]}
-                primaryColor="#4287f5"
+                primaryColor="66, 135, 245"
                 border={false}
             />
         </div>
