@@ -8,15 +8,16 @@
     export let rightBorder: boolean = true;
     export let topBorder: boolean = true;
     export let bottomBorder: boolean = true;
-    export let border: boolean = true;
     export let icon: string = '';
     export let iconSize: number = 48;
     export let primaryColor: string = '#101010';
     export let secondaryColor: string = '#ededed';
     export let tertiaryColor: string = '#515151';
     export let margin: number = 0;
-    export let width: string = 'auto';
+    export let width: string = 'fit-content';
     export let justify: string = 'center';
+    export let bloom: boolean = false;
+    export let border: boolean = true;
     export let onClick: () => void = () => {};
     export let type: string = 'default';
     export let toggleButton: boolean = false;
@@ -73,7 +74,10 @@
     disabled={disabled} 
     on:click={handleClick}
     bind:this={ref}
-    class={toggleButton && toggle ? 'toggled' : 'notToggled'}
+    class={`
+        ${toggleButton && toggle ? 'toggled' : 'nothing'}
+        ${bloom ? 'bloom' : 'nothing'}
+    `}
     style={`
         --primary: ${primaryColor};
         --secondary: ${secondaryColor};
@@ -125,6 +129,12 @@
         background-color: var(--secondary, #ededed);
         color: var(--primary, #101010);
         z-index: 2;
+    }
+
+    .bloom {
+        box-shadow: 
+            0 0 20px rgba(79, 70, 229, 0.8),
+            0 0 40px rgba(79, 70, 229, 0.6);
     }
 
     button:hover {

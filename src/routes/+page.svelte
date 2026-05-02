@@ -66,6 +66,14 @@
                 margin={2}
                 toggleButton={true}
             />
+            <Button
+                text="This button has bloom."
+                margin={2}
+                bloom={true}
+                primaryColor="#4287f5"
+                toggleButton={true}
+                border={false}
+            />
             <div class="iconContainer">
                 <Button 
                     type="plus"
