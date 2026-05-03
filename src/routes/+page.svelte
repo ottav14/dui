@@ -1,5 +1,5 @@
 <script>
-    import { Button, Text, Dropdown, Slider, Counter, EquationInput } from '../lib/index.ts';
+    import { Button, Text, Dropdown, Slider, Counter, TextInput } from '../lib/index.ts';
 
     const multiButtonItems = [ '1', '2', '3' ];
     let activeMultiButtonIx = 0;
@@ -142,10 +142,14 @@
         </div>
         <div class="container">
             <Text 
-                text="EQUATION INPUT"
+                text="TEXT INPUT"
                 type="h2"
             />
-            <EquationInput />
+            <TextInput />
+            <TextInput 
+                type="single" 
+                uppercase={true}
+            />
         </div>
     </div>
 </main>
