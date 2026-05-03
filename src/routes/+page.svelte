@@ -87,6 +87,12 @@
                 <Button 
                     type="settings"
                 />
+                <Button 
+                    type="visuals"
+                />
+                <Button 
+                    type="mouse"
+                />
             </div>
             <div class="multiButtonContainer">
                 {#each multiButtonItems as item, i}
