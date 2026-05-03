@@ -9,9 +9,8 @@
     export let align: string = 'left';
     export let uppercase: boolean = false;
     export let margin: number = 1;
-    export let onInput: () => void = () => {};
+    export let onInput: (e: InputEvent) => void = (_) => {};
     export let font = `"STIX Two Math", "Cambria Math", serif;`;
-
 
     switch(type) {
         case 'single':
