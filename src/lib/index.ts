@@ -7,3 +7,4 @@ export { default as Slider } from './Slider.svelte';
 export { default as Counter } from './Counter.svelte';
 export { default as TextInput } from './TextInput.svelte';
 export { default as SettingsBar } from './SettingsBar.svelte';
+export { default as Toggle } from './Toggle.svelte';

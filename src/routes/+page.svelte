@@ -1,5 +1,5 @@
 <script>
-    import { Button, Text, Dropdown, Slider, Counter, TextInput } from '../lib/index.ts';
+    import { Button, Text, Dropdown, Slider, Counter, TextInput, Toggle } from '../lib/index.ts';
 
     const multiButtonItems = [ '1', '2', '3' ];
     let activeMultiButtonIx = 0;
@@ -155,6 +155,15 @@
             <TextInput 
                 type="single" 
                 uppercase={true}
+            />
+        </div>
+        <div class="container">
+            <Text 
+                text="TOGGLE"
+                type="h2"
+            />
+            <Toggle 
+                margin={5}
             />
         </div>
     </div>
