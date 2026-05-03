@@ -9,6 +9,9 @@
     export let align: string = 'left';
     export let uppercase: boolean = false;
     export let margin: number = 1;
+    export let onInput: () => void = () => {};
+    export let font = `"STIX Two Math", "Cambria Math", serif;`;
+
 
     switch(type) {
         case 'single':
@@ -43,29 +46,33 @@
 <input
     bind:this={inputRef}
     bind:value
+    on:input={onInput}
     placeholder={placeholder}
     style={`
         width: ${width}rem;    
         text-align: ${align};
         margin: ${margin}rem;
+        font-family: ${font};
     `}
 />
 
 <style>
     input {
+        display: flex;
+        align-items: center;
         height: 3rem;
         padding: 1rem 1.5rem;
+        padding-top: 1.2rem;
         border: 2px solid #444;
         background: transparent;
         color: var(--light);
         font-size: 20pt;
         outline: none;
-        transition: all 0.2s;
+        transition: all 0.2s ease;
     }
 
     input:focus {
         border-color: var(--light);
-        transform: scale(1);
     }
 
     input:hover:not(:focus-visible) {
